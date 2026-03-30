@@ -1,41 +1,36 @@
 -- Создание таблицы
-CREATE TABLE nauka_1_1 (
-    id SERIAL PRIMARY KEY,
-    year INTEGER NOT NULL UNIQUE,
-    research_organizations INTEGER,
-    design_organizations INTEGER,
-    project_organizations INTEGER,
-    experimental_plants INTEGER,
-    educational_organizations INTEGER,
-    industrial_organizations INTEGER,
-    other_organizations INTEGER
+CREATE TABLE pc_statistics (
+    year INT PRIMARY KEY,
+    total_pc_thousand DECIMAL(10,1),
+    internet_access_pc_thousand DECIMAL(10,1),
+    received_pc_thousand DECIMAL(10,1),
+    pc_per_100_workers INT,
+    internet_pc_per_100_workers INT
 );
 
 -- Вставка данных (транспонированная форма - года как строки)
-INSERT INTO nauka_1_1 (
-    year, 
-    research_organizations, 
-    design_organizations, 
-    project_organizations, 
-    experimental_plants, 
-    educational_organizations, 
-    industrial_organizations, 
-    other_organizations
-) VALUES
-(2000, 2686, 318, 85, 33, 390, 284, 303),
-(2005, 2115, 489, 61, 30, 406, 231, 234),
-(2010, 1840, 362, 36, 47, 517, 238, 452),
-(2011, 1782, 364, 38, 49, 581, 280, 588),
-(2012, 1744, 338, 33, 60, 560, 274, 557),
-(2013, 1719, 331, 33, 53, 671, 266, 532),
-(2014, 1689, 317, 32, 53, 702, 275, 536),
-(2015, 1708, 322, 29, 61, 1040, 371, 644),
-(2016, 1673, 304, 26, 62, 979, 363, 625),
-(2017, 1577, 273, 23, 63, 970, 380, 658),
-(2018, 1574, 254, 20, 49, 917, 419, 717),
-(2019, 1618, 255, 11, 44, 951, 450, 722),
-(2020, 1633, 239, 12, 35, 969, 441, 846),
-(2021, 1627, 233, 13, 33, 990, 446, 833),
-(2022, 1584, 249, 13, 30, 991, 494, 834),
-(2023, 1560, 236, 17, 30, 990, 491, 801),
-(2024, 1543, 231, 16, 25, 994, 531, 817);
+INSERT INTO pc_statistics
+(year, total_pc_thousand, internet_access_pc_thousand, received_pc_thousand, pc_per_100_workers, internet_pc_per_100_workers)
+VALUES
+(2003, 4150.5, 986.0, 656.2, 18, 4),
+(2004, 4558.3, 1218.8, 743.8, 20, 5),
+(2005, 5709.6, 1686.1, 984.2, 23, 7),
+(2006, 6684.0, 2232.0, 1170.9, 26, 9),
+(2007, 7528.4, 2888.4, 1257.9, 29, 11),
+(2008, 8267.3, 3411.5, 1159.2, 32, 13),
+(2009, 8743.7, 3866.4, 890.6, 35, 15),
+(2010, 9288.1, 4553.3, 999.9, 36, 18),
+(2011, 9972.2, 5198.3, 1251.6, 39, 21),
+(2012, 10807.5, 6066.5, 1454.1, 43, 24),
+(2013, 11438.0, 6764.4, 1351.5, 44, 26),
+(2014, 11740.8, 7277.6, 1177.7, 47, 29),
+(2015, 11992.3, 7561.5, 952.2, 49, 31),
+(2016, 12422.1, 8117.9, 986.7, 49, 32),
+(2017, 12765.9, 8573.9, 1148.8, 50, 33),
+(2018, 13256.1, 9090.4, 1301.6, 51, 35),
+(2019, 13816.7, 9734.5, 1453.5, 51, 36),
+(2020, 15791.4, 11120.8, 2077.7, 57, 40),
+(2021, 17226.2, 12578.2, 1825.6, 61, 45),
+(2022, 18080.7, 13106.8, 1736.4, 63, 46),
+(2023, 18821.3, 13410.9, 1884.7, 65, 46),
+(2024, 19818.7, NULL, 2317.5, 67, NULL);
